@@ -1,0 +1,7 @@
+##pdf
+### pdf -> img
+使用 pdfbox.jar，将 pdf文件转成 .png 图片
+同名称的pdf，只会转一次图片，下次再执行时，会直接返回第一次生成的图片。
+
+
+pdf word html img
