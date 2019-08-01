@@ -1,7 +1,40 @@
-##pdf
+## pdf
 ### pdf -> img
-使用 pdfbox.jar，将 pdf文件转成 .png 图片
+使用 pdfbox.jar，将 pdf 文件转成 .png 图片
 同名称的pdf，只会转一次图片，下次再执行时，会直接返回第一次生成的图片。
 
+## html
+### html -> word
+使用 freemarker.jar，freemarker 读取 html 内容，并填充数据，生成doc
+
+### html -> pdf
+涉及到 freemarker.jar 和 core-renderer.jar 两个包
+使用 freemarker 读取 html 内容，并填充数据，生成pdf
+
+html 填充图片数据并生成 pdf 有几个要注意的地方，不然会很头疼。
+1. 需要设置一些格式。
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="Aspose.Words for .NET 15.1.0.0" />
+
+<style type="text/css">
+    /*解决html转pdf文件中文不显示的问题*/
+    body {
+        font-family: SimSun;
+    }
+
+    /*设定纸张大小*/
+    /* A4纸 */
+    /* @page{size:210mm*297mm} */
+    @page {
+        size: a4
+    }
+</style>
+
+上面头部两段需要如此，然后生成会报一些标签需要闭合，处理一下就好。
+
+2. 嵌入图片，需要用图片的 base64 填充，前端代码展示图片如下
+<img src="data:image/jpeg;base64,${dzqm!}" width="40" height="40" alt="" style="-aw-left-pos: 0pt;
+-aw-rel-hpos: column; -aw-rel-vpos: paragraph; -aw-top-pos: 0pt; -aw-wrap-type: inline" />
 
 pdf word html img
