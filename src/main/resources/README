@@ -3,12 +3,22 @@
 使用 pdfbox.jar，将 pdf 文件转成 .png 图片
 同名称的pdf，只会转一次图片，下次再执行时，会直接返回第一次生成的图片。
 
+### pdfUtil
+引入 itextpdf.jar，可以
+1.合并pdf
+2.截取pdf
+3.拆分pdf
+4.图片合成bdf
+5.输出水印
+
+-----------------------------------------------------------------------------------------------------------------------
+
 ## html
 ### html -> word
 使用 freemarker.jar，freemarker 读取 html 内容，并填充数据，生成doc
 
 ### html -> pdf
-涉及到 freemarker.jar 和 core-renderer.jar 两个包
+涉及到 freemarker.jar 和 core-renderer.jar 两个包,还有设计到资源文件下 pdf 中的资源
 使用 freemarker 读取 html 内容，并填充数据，生成pdf
 
 html 填充图片数据并生成 pdf 有几个要注意的地方，不然会很头疼。
@@ -37,4 +47,22 @@ html 填充图片数据并生成 pdf 有几个要注意的地方，不然会很�
 <img src="data:image/jpeg;base64,${dzqm!}" width="40" height="40" alt="" style="-aw-left-pos: 0pt;
 -aw-rel-hpos: column; -aw-rel-vpos: paragraph; -aw-top-pos: 0pt; -aw-wrap-type: inline" />
 
-pdf word html img
+-----------------------------------------------------------------------------------------------------------------------
+
+## word
+### word -> pdf
+效果最好的一种方法，但是需要 window 环境，而且速度是最慢的
+需要安装 msofficeWord 以及 SaveAsPDFandXPS.exe (word 的一个插件，用来把 word 转化为 pdf，可以不用安装，本次未安装测试通过 )
+
+SaveAsPDFandXPS
+下载地址：http://www.microsoft.com/zh-cn/download/details.aspx?id=7
+jacob 包下载地址：http://sourceforge.net/projects/jacob-project/
+
+jacob.jar 放在 E:\jdk1.5.0_14\jre\lib\ext
+jacob.dll 放在 E:\jdk1.5.0_14\jre\bin
+
+-----------------------------------------------------------------------------------------------------------------------
+将本地 jar 装进本地 maven 库
+进入到 maven 的 bin 目录，打开 cmd，执行下面指令
+-Dfile：本地 jar 的路径
+E:\work\apache-maven-3.5.3\bin>mvn install:install-file -Dfile=E:\iead-workspace\fj_transform\src\main\resources\lib\jacob.jar -DgroupId=com.jacob -DartifactId=jacob -Dversion=1.18 -Dpackaging=jar

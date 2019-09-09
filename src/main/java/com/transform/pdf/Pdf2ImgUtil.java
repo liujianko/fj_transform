@@ -14,7 +14,7 @@ import java.io.File;
 @Author liujianko
 @Date 2019/7/25
 **/
-class pdf2ImgUtil {
+class Pdf2ImgUtil {
 
     /**
      * pdf 转图片
