@@ -61,6 +61,16 @@ jacob 包下载地址：http://sourceforge.net/projects/jacob-project/
 jacob.jar 放在 E:\jdk1.5.0_14\jre\lib\ext
 jacob.dll 放在 E:\jdk1.5.0_14\jre\bin
 
+
+### word -> pdf 第二种方式
+https://www.e-iceblue.cn/Downloads/Free-Spire-Doc-JAVA.html
+Spire 有一系列的 office 的操作工具，有免费版和付费版
+打开网址可以看到免费版本的maven，无需安装office
+
+pom文件首先引用jar
+
+jar maven 下载不回来，直接下载要注册，所以最后没有验证这种方式
+
 -----------------------------------------------------------------------------------------------------------------------
 将本地 jar 装进本地 maven 库
 进入到 maven 的 bin 目录，打开 cmd，执行下面指令
